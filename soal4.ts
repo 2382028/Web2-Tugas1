@@ -1,15 +1,10 @@
-function drawStaircase(n : number): void{
-    for(let i = 0; i < n; i++){
-        let textInALine : string = "";
-        for(let j = n -1; j >= 0; j--){
-            if(i >= j){
-                textInALine += "#";
-            }else{
-                textInALine += " ";
-            }
-        }
-        console.log(textInALine);
+function drawStaircase(size: number): void {
+    for (let row = 1; row <= size; row++) {
+        let leadingSpaces = " ".repeat(size - row);
+        let steps = "#".repeat(row);
+        console.log(leadingSpaces + steps);
     }
 }
 
-drawStaircase(4);
+const size: number = 6;
+drawStaircase(size);
