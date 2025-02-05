@@ -1,23 +1,24 @@
-function countNumOfValley(steps : number, path : string){
-    let countValley = 0;
-    let temp : string = "";
-    for(let i = 0; i < steps; i++){
+function countValleys(steps: number, path: string): number {
+    let valleyCount = 0;
+    let elevation = 0;
 
-        if(path[i] == "D"){
-            temp += "D";
-        }else{
-            temp = "";
+    for (let step of path) {
+        if (step === 'U') {
+            elevation++;
+        } else {
+            elevation--;
         }
-
-        if(temp == "DD"){
-            countValley++;
-            temp = "";
+        
+        if (elevation === 0 && step === 'U') {
+            valleyCount++;
         }
-
     }
-    return countValley;
+
+    return valleyCount;
 }
 
-let numOfValley = countNumOfValley(8,"UDDDUDUU");
+const steps: number = 8;
+const path: string = "UDDDUDUU"; 
 
-console.log(numOfValley);
+const result = countValleys(steps, path);
+console.log(result);
