@@ -1,12 +1,12 @@
-function isPalindrome(input : string){
-    let j = input.length -1;
-    for(let i = 0; i < input.length / 2; i++){
-        console.log(input[i], input[j]);
-        if(input[j] != input[i]) return false;
-        j--;
+function checkPalindrome(str: string): boolean {
+    let end = str.length - 1;
+    for (let start = 0; start < str.length / 2; start++) {
+        console.log(str[start], str[end]);
+        if (str[start] !== str[end]) return false;
+        end--;
     }
 
     return true;
 }
 
-console.log(isPalindrome("10"));
+console.log(checkPalindrome("10"));
