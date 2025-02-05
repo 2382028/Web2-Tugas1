@@ -1,22 +1,20 @@
-function plusMinus(...arr : number[]){
-    let temp = new Map<number,number>();
-    let arrRatios : string[] = [];
-    for(let i = 0; i < arr.length; i++){
-        if(temp.has(arr[i])){
-            let updatedKey = temp.get(arr[i])!;
-            updatedKey++; 
-            temp.set(arr[i],updatedKey);
-        }else{
-            temp.set(arr[i], 1);
+function calculateRatios(...numbers: number[]): string[] {
+    const counts = new Map<number, number>();
+    const ratios: string[] = [];
+
+    numbers.forEach(num => {
+        if (counts.has(num)) {
+            counts.set(num, counts.get(num)! + 1);
+        } else {
+            counts.set(num, 1);
         }
-    }
+    });
 
-    for(let value of temp.values()){
-        arrRatios.push((value / arr.length).toPrecision(7));
-    }
+    counts.forEach(count => {
+        ratios.push((count / numbers.length).toPrecision(7));
+    });
 
-    return arrRatios;
+    return ratios;
 }
 
-
-console.log(plusMinus(1,1,0,-1,-1));
+console.log(calculateRatios(1, 1, 0, -1, -1));
