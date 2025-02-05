@@ -1,15 +1,17 @@
-function birthdayCakeCandles(...candles : number[]){
-    let tallestCandleAmmount = 0;
-    let currentTallestCandleHeight = -1;
-    for(let i = 0; i < candles.length; i++){
-        if(currentTallestCandleHeight < candles[i]){
-            tallestCandleAmmount = 1;
-            currentTallestCandleHeight = candles[i];
-        }else if(currentTallestCandleHeight == candles[i]){
-            tallestCandleAmmount++;
+function countHighestCandles(...candles: number[]): number {
+    let maxCount = 0;
+    let maxHeight = -1;
+
+    for (const candle of candles) {
+        if (candle > maxHeight) {
+            maxHeight = candle;
+            maxCount = 1;
+        } else if (candle === maxHeight) {
+            maxCount++;
         }
     }
-    return tallestCandleAmmount;
+    
+    return maxCount;
 }
 
-console.log(birthdayCakeCandles(4,4,1,3))
+console.log(countHighestCandles(4, 4, 1, 3));
