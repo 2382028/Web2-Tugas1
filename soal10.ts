@@ -1,17 +1,17 @@
-function twoSum(nums: number[], target : number){
-    let temp = new Map<number,number>();
+function findTwoSum(nums: number[], target: number): number[] {
+    const map = new Map<number, number>();
 
-    for(let i = 0; i < nums.length; i++){
-        if(temp.has(Math.abs(nums[i] - target))){
-            let val = temp.get(Math.abs(nums[i] - target))!;
+    for (let index = 0; index < nums.length; index++) {
+        const diff = target - nums[index];
 
-            return [val,  i];
-        }else{
-            temp.set(nums[i],i);
+        if (map.has(diff)) {
+            return [map.get(diff)!, index];
         }
+
+        map.set(nums[index], index);
     }
 
     return [];
 }
 
-console.log(twoSum([3,2,4],6));
+console.log(findTwoSum([3, 2, 4], 6));
