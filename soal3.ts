@@ -1,15 +1,15 @@
-function countCamelCase(camelCaseText : string):number{
-    let countWords : number = 1;
+function countCamelCaseWords(s: string): number {
+    let wordCount = 1;
 
-    for(let i = 0; i < camelCaseText.length; i++){
-        let asciiVal = camelCaseText.charCodeAt(i);
-        if(asciiVal >= 65 && asciiVal <= 90){
-            countWords++;
+    for (let char of s) {
+        if (char >= 'A' && char <= 'Z') {
+            wordCount++;
         }
     }
 
-    return countWords;
+    return wordCount;
 }
 
-console.log(countCamelCase("saveChangesInTheEditor"));
-
+const inputString: string = "saveChangesInTheEditor"; 
+const wordCountResult = countCamelCaseWords(inputString);
+console.log(wordCountResult);
